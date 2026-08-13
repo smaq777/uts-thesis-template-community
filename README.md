@@ -48,6 +48,7 @@ submitted.
 - [Overleaf route](#overleaf-route)
 - [Troubleshooting](#troubleshooting)
 - [UTS checkpoints](#uts-checkpoints)
+- [Reuse and upstream repository policy](#reuse-and-upstream-repository-policy)
 - [Attribution, licence and status](#attribution-licence-and-status)
 
 ## Why work locally?
@@ -309,11 +310,17 @@ title, venue, year, DOI and the claim it is being used to support.
 
 ## Revision history with GitHub issues and branches
 
+These instructions are for **your own repository created from this template**, not for
+the upstream `smaq777/uts-thesis-template-community` repository. First download, clone,
+fork, or select **Use this template** to create a copy under your control. Then use the
+Issues, branches and pull requests in that copy to manage your thesis revisions.
+
 Use an issue for **why**, a branch for **isolated work**, commits for **reviewable
 steps**, a pull request for **acceptance evidence**, and tags/releases for **important
 thesis milestones**.
 
-1. Open a [new thesis revision issue](https://github.com/smaq777/uts-thesis-template-community/issues/new?template=thesis-revision.yml).
+1. Open the **Issues** tab in your own repository and select **New issue → Thesis
+   revision**.
 2. Record the baseline, requested revision, affected files, acceptance criteria,
    validation, privacy risk and recovery plan.
 3. Create a branch such as `revision/42-methodology-rationale`. An AI agent following
@@ -380,7 +387,7 @@ open the repository root so the agent can read those instructions.
 Read README.md, AGENTS.md (or CLAUDE.md), config/thesis-details.tex, thesis.tex,
 and the chapter files relevant to my request. Do not edit yet. First report:
 1. the exact files you propose to change;
-2. the GitHub revision issue and branch you will use;
+2. the GitHub revision issue in my own repository and the branch you will use;
 3. risks to citations, labels, examiner IDs, privacy, and formatting;
 4. the build and visual checks you will run.
 Wait for my approval, then make a small change, run make all, inspect the affected
@@ -485,6 +492,21 @@ Before changing GitHub visibility, complete the
 [public release checklist](docs/PUBLIC_RELEASE_CHECKLIST.md). Remove personal metadata,
 signatures, examiner material, unpublished research, credentials and accidental build
 artefacts.
+
+## Reuse and upstream repository policy
+
+You may download, clone, fork, copy and modify this template for your own thesis or
+another permitted purpose. You may also redistribute your modified version when you
+comply with the applicable licence, attribution and notice requirements described in
+[`LICENSE.md`](LICENSE.md). This freedom to use and adapt the template is the reason it
+is published.
+
+The upstream `smaq777/uts-thesis-template-community` repository is maintained by Saleh
+Alqahtani at the maintainer's discretion and **does not accept external pull requests,
+feature requests, contribution proposals or personal thesis-revision issues**. Please
+use revision issues, branches and pull requests inside your own repository. Permission
+to modify or redistribute your copy does not create an obligation for the upstream
+maintainer to review, support or merge those changes.
 
 ## Attribution, licence and status
 

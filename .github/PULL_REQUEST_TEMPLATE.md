@@ -1,3 +1,7 @@
+> This pull-request template is supplied for students managing revisions in their own
+> repository. The upstream `smaq777/uts-thesis-template-community` repository does not
+> accept external pull requests or contribution proposals.
+
 ## Revision record
 
 Closes #
@@ -22,4 +26,3 @@ Closes #
 ### Recovery
 
 Describe how to revert or forward-fix this revision:
-

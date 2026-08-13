@@ -7,6 +7,8 @@ body:
   - type: markdown
     attributes:
       value: |
+        This issue form is supplied for use in your own repository created from the template. Do not submit personal thesis revisions, feature requests, or contribution proposals to the upstream `smaq777/uts-thesis-template-community` repository.
+
         Use one issue for one reviewable change. Do not paste confidential examiner reports, participant data, unpublished results, credentials, or restricted material into a public repository.
 
   - type: dropdown
