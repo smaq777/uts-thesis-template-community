@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Thesis: build clean PDF",
+      "type": "shell",
+      "command": "make clean-thesis",
+      "group": "build",
+      "problemMatcher": ["$latex"]
+    },
+    {
+      "label": "Thesis: build all three PDFs",
+      "type": "shell",
+      "command": "make all",
+      "group": "build",
+      "problemMatcher": ["$latex"]
+    },
+    {
+      "label": "Thesis: check installation",
+      "type": "shell",
+      "command": "make doctor",
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+% !TEX program = xelatex
+% Build thesis-review.tex before this file so page references are available.
+\documentclass[a4paper,11pt]{article}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{xparse}
+\usepackage{xstring}
+\usepackage[normalem]{ulem}
+\usepackage{marginnote}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\usepackage{xr-hyper}
+\externaldocument[thesis-]{build/Thesis_REVIEW}
+
+\def\ThesisReviewMode{clean}
+\input{config/thesis-details}
+\input{config/university-details}
+\input{config/revision-colours}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\CorrectionPage}[2]{\pageref{thesis-corr:#1-#2}}
+
+\begin{document}
+\begin{center}
+  {\Large\bfseries Thesis Revision Response}\par
+  \vspace{0.5em}
+  {\ThesisAuthor}\par
+  \ThesisTitle
+\end{center}
+
+\noindent\textbf{Important:} This community document is an example, not an official
+university form. UTS students must download the current Thesis Revision Response
+template and follow their outcome letter, school, faculty, supervisory panel and
+Graduate Research School instructions.
+
+\vspace{1em}
+\begin{longtable}{P{0.10\textwidth}P{0.28\textwidth}P{0.39\textwidth}P{0.11\textwidth}}
+\toprule
+\textbf{ID} & \textbf{Examiner comment} & \textbf{How the recommendation was addressed} & \textbf{Page(s)} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{ID} & \textbf{Examiner comment} & \textbf{How the recommendation was addressed} & \textbf{Page(s)} \\
+\midrule
+\endhead
+
+\ExaminerBadge{E1-01} &
+The introduction should state the research gap more explicitly. &
+Added a concise research-gap paragraph that distinguishes the unresolved problem
+from the general topic background. The substantive correction is marked as
+\texttt{E1-01-a} in the review thesis. &
+\CorrectionPage{E1-01}{a} \\
+\midrule
+
+\ExaminerBadge{E2-01} &
+The methodology figure requires a clearer explanation in the surrounding text. &
+Added a numbered figure reference and explained the relationship between the
+design, evidence collection and analysis stages. The correction is marked as
+\texttt{E2-01-a}. &
+\CorrectionPage{E2-01}{a} \\
+\midrule
+
+\ExaminerBadge{E3-01} &
+Clarify the limitations of the illustrative results. &
+Added a limitations statement explaining that the values are placeholders and
+must be replaced with verified study evidence. The correction is marked as
+\texttt{E3-01-a}. &
+\CorrectionPage{E3-01}{a} \\
+\bottomrule
+\end{longtable}
+
+\par\bigskip
+\noindent{\large\bfseries Student checklist}\par\vspace{0.6em}
+\noindent\textbullet\quad Preserve every examiner comment verbatim and in report order.\par\smallskip
+\noindent\textbullet\quad Respond to every comment, including comments requiring explanation but no text change.\par\smallskip
+\noindent\textbullet\quad Build the final thesis before entering or confirming page numbers.\par\smallskip
+\noindent\textbullet\quad Obtain all required supervisor and university approvals before submission.
+\end{document}

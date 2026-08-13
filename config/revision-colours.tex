@@ -1,0 +1,47 @@
+% Accessible colours from a colour-blind-friendly palette. IDs remain visible
+% so meaning never depends on colour alone.
+\definecolor{ExaminerOne}{HTML}{0072B2}
+\definecolor{ExaminerTwo}{HTML}{D55E00}
+\definecolor{ExaminerThree}{HTML}{CC79A7}
+\definecolor{DeletedText}{HTML}{666666}
+
+\newif\ifReviewCopy
+\IfStrEq{\ThesisReviewMode}{review}{\ReviewCopytrue}{\ReviewCopyfalse}
+
+\newcommand{\ApplyExaminerColour}[1]{%
+  \IfBeginWith{#1}{E1}{\color{ExaminerOne}}{%
+    \IfBeginWith{#1}{E2}{\color{ExaminerTwo}}{%
+      \IfBeginWith{#1}{E3}{\color{ExaminerThree}}{\color{black}}}}}
+
+\newcommand{\ExaminerBadge}[1]{%
+  \begingroup\ApplyExaminerColour{#1}\textbf{[#1]}\endgroup}
+
+% Usage: \CorrectionAdd{E1-01}{a}{new text}
+\NewDocumentCommand{\CorrectionAdd}{m m m}{%
+  \label{corr:#1-#2}%
+  \ifReviewCopy
+    \begingroup\ApplyExaminerColour{#1}\textbf{[#1]}~#3\endgroup%
+    \marginnote{\ExaminerBadge{#1}}%
+  \else
+    #3%
+  \fi}
+
+% Usage: \CorrectionReplace{E2-03}{a}{old text}{new text}
+\NewDocumentCommand{\CorrectionReplace}{m m m m}{%
+  \label{corr:#1-#2}%
+  \ifReviewCopy
+    \begingroup\color{DeletedText}\sout{#3}\endgroup{}%
+    \begingroup\ApplyExaminerColour{#1} \textbf{[#1]}~#4\endgroup%
+    \marginnote{\ExaminerBadge{#1}}%
+  \else
+    #4%
+  \fi}
+
+% Usage: \CorrectionDelete{E1-05}{a}{text that was removed}
+\NewDocumentCommand{\CorrectionDelete}{m m m}{%
+  \label{corr:#1-#2}%
+  \ifReviewCopy
+    \begingroup\color{DeletedText}\textbf{[#1 deleted]}~\sout{#3}\endgroup%
+    \marginnote{\ExaminerBadge{#1}}%
+  \fi}
+

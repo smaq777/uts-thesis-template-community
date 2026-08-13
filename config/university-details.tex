@@ -1,0 +1,12 @@
+% This community repository distributes no university logo.
+% To use an authorised logo, add assets/institution-logo.pdf.
+\newcommand{\InstitutionName}{Your University}
+\newcommand{\InstitutionLogo}{%
+  \IfFileExists{assets/institution-logo.pdf}{%
+    \includegraphics[width=42mm]{assets/institution-logo.pdf}%
+  }{%
+    \fbox{\parbox[c][28mm][c]{60mm}{\centering\small
+      Replace with your authorised\\institution logo\\or remove this box}}%
+  }%
+}
+

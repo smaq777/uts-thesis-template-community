@@ -1,0 +1,41 @@
+# LaTeX build products
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+
+# Generated deliverables
+build/
+tmp/
+*.pdf
+!assets/**/*.pdf
+!examples/pdfs/*.pdf
+
+# Local editor and operating-system files
+.DS_Store
+*.swp
+*.swo
+.idea/
+
+# Never commit secrets
+.env
+.env.*
+*.key
+*.pem
+
+# A student's real AI-use log may contain sensitive research context or prompt text.
+# Keep the synthetic example, but do not publish the working log by default.
+records/ai-use-log.csv

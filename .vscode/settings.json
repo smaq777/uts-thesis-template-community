@@ -1,0 +1,41 @@
+{
+  "latex-workshop.latex.outDir": "%DIR%/build",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.synctex.afterBuild.enabled": true,
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "Build clean thesis",
+      "tools": ["make-clean-thesis"]
+    },
+    {
+      "name": "Build all submission examples",
+      "tools": ["make-all"]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "make-clean-thesis",
+      "command": "make",
+      "args": ["clean-thesis"],
+      "env": {}
+    },
+    {
+      "name": "make-all",
+      "command": "make",
+      "args": ["all"],
+      "env": {}
+    }
+  ],
+  "files.exclude": {
+    "build/**/*.aux": true,
+    "build/**/*.bbl": true,
+    "build/**/*.bcf": true,
+    "build/**/*.blg": true,
+    "build/**/*.fdb_latexmk": true,
+    "build/**/*.fls": true,
+    "build/**/*.log": true,
+    "build/**/*.run.xml": true,
+    "build/**/*.toc": true
+  }
+}
