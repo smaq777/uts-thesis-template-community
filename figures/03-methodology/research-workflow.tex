@@ -1,0 +1,15 @@
+\begin{tikzpicture}[
+  node distance=9mm,
+  every node/.style={draw,rounded corners,align=center,minimum width=3.6cm,minimum height=8mm},
+  every path/.style={draw,-{Latex[length=2mm]}}
+]
+  \node (questions) {Research questions};
+  \node (evidence) [below=of questions] {Evidence collection};
+  \node (analysis) [below=of evidence] {Analysis};
+  \node (validation) [below=of analysis] {Validation and interpretation};
+  \path (questions) -- (evidence);
+  \path (evidence) -- (analysis);
+  \path (analysis) -- (validation);
+  \path (validation.east) -- ++(1.0,0) |- (questions.east);
+\end{tikzpicture}
+

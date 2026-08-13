@@ -1,0 +1,30 @@
+name: Build example PDFs
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  latex:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install TeX Live tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes latexmk texlive-xetex texlive-latex-extra texlive-fonts-recommended
+      - name: Build all examples
+        run: make all
+      - name: Confirm expected PDFs
+        run: test -s build/Thesis_CLEAN.pdf && test -s build/Thesis_REVIEW.pdf && test -s build/Revision_Response.pdf
+      - name: Upload example PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-example-pdfs
+          path: |
+            build/Thesis_CLEAN.pdf
+            build/Thesis_REVIEW.pdf
+            build/Revision_Response.pdf

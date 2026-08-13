@@ -1,0 +1,58 @@
+% Core packages and layout for the community edition.
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+% Load font files bundled with TeX Live/MiKTeX instead of relying on operating-system
+% font registration. This is more portable across local, CI and Overleaf builds.
+\setmainfont{lmroman10-regular.otf}[
+  BoldFont=lmroman10-bold.otf,
+  ItalicFont=lmroman10-italic.otf,
+  BoldItalicFont=lmroman10-bolditalic.otf
+]
+\setsansfont{lmsans10-regular.otf}[
+  BoldFont=lmsans10-bold.otf,
+  ItalicFont=lmsans10-oblique.otf
+]
+\setmonofont{lmmono10-regular.otf}[ItalicFont=lmmono10-italic.otf]
+
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{threeparttable}
+\usepackage{array}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{xparse}
+\usepackage{xstring}
+\usepackage[normalem]{ulem}
+\usepackage{marginnote}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage[round,authoryear]{natbib}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  citecolor=green!45!black,
+  urlcolor=blue!65!black,
+  pdftitle={Community Thesis Template},
+  pdfauthor={Template Student}
+}
+
+\settrimmedsize{297mm}{210mm}{*}
+\setulmarginsandblock{30mm}{30mm}{*}
+\setlrmarginsandblock{35mm}{25mm}{*}
+\setheadfoot{15pt}{30pt}
+\setheaderspaces{*}{20pt}{*}
+\checkandfixthelayout
+\OnehalfSpacing
+\raggedbottom
+\setsecnumdepth{subsection}
+\maxtocdepth{subsection}
+
+\newcommand{\placeholder}[1]{\textcolor{gray!70!black}{\textit{[Replace this example: #1]}}}
+\newcommand{\keywords}[1]{\par\noindent\textbf{Keywords:} #1}
