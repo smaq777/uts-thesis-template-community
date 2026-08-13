@@ -325,8 +325,9 @@ thesis milestones**.
    `thesis-v2.0-final`.
 
 This preserves old states without duplicating the entire thesis into folders named
-“final”, “final-new” and “final-real”. Read the exact commands, recovery examples and
-privacy cautions in [Revision and version control](docs/REVISION_AND_VERSION_CONTROL.md).
+“final”, “final-new”, “final-22-12-2026”, “really-last-final-one”, and “final-real”.
+Read the exact commands, recovery examples and privacy cautions in
+[Revision and version control](docs/REVISION_AND_VERSION_CONTROL.md).
 
 Do not place confidential examiner reports, signatures, participant information,
 embargoed research or restricted data in a public GitHub issue, commit, PDF or release.
