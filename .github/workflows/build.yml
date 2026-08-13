@@ -26,7 +26,7 @@ jobs:
           test -s examples/pdfs/Thesis_CLEAN.pdf
           test -s examples/pdfs/Thesis_REVIEW.pdf
           test -s examples/pdfs/Revision_Response.pdf
-          pdftotext examples/pdfs/Thesis_CLEAN.pdf - | grep -q "An Example Research Thesis"
+          pdftotext examples/pdfs/Thesis_CLEAN.pdf - | grep -q "A Structured Research Journey"
           pdftotext examples/pdfs/Thesis_REVIEW.pdf - | grep -q "E1-01"
           pdftotext examples/pdfs/Revision_Response.pdf - | grep -q "Thesis Revision Response"
       - name: Upload example PDFs
