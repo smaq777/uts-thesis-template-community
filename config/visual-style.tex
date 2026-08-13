@@ -1,0 +1,109 @@
+% Public-safe visual system for the community template.
+% This file contains presentation only: no thesis-specific structure or content.
+
+% TeX Gyre Schola is a portable Schoolbook-style family bundled with current
+% TeX Live and MiKTeX distributions.
+\setmainfont{texgyreschola-regular.otf}[
+  BoldFont=texgyreschola-bold.otf,
+  ItalicFont=texgyreschola-italic.otf,
+  BoldItalicFont=texgyreschola-bolditalic.otf
+]
+\setsansfont{texgyreheros-regular.otf}[
+  BoldFont=texgyreheros-bold.otf,
+  ItalicFont=texgyreheros-italic.otf,
+  BoldItalicFont=texgyreheros-bolditalic.otf
+]
+\setmonofont{lmmono10-regular.otf}[ItalicFont=lmmono10-italic.otf]
+
+\definecolor{ThesisGrey}{gray}{0.55}
+\definecolor{ThesisRule}{gray}{0.18}
+
+% A4 layout inspired by the maintained community edition's established memoir
+% presentation. Change these values only after checking every output PDF.
+\settrimmedsize{297mm}{210mm}{*}
+\settypeblocksize{634pt}{*}{*}
+\setulmargins{40mm}{*}{*}
+\setlrmarginsandblock{26.5mm}{26.5mm}{*}
+\setmarginnotes{17pt}{51pt}{\onelineskip}
+\setheadfoot{30pt}{2\onelineskip}
+\setheaderspaces{*}{2\onelineskip}{*}
+\checkandfixthelayout
+\OnehalfSpacing
+\raggedbottom
+\frenchspacing
+\setlength{\emergencystretch}{2em}
+
+% Standard hierarchy: chapters, sections and subsections are numbered. Students
+% may add or remove headings; the table of contents is generated automatically.
+\setsecnumdepth{subsection}
+\maxsecnumdepth{subsubsection}
+\maxtocdepth{subsection}
+
+% Distinctive main-matter chapter opener: vertical CHAPTER label, large grey box,
+% and a right-aligned title. It does not prescribe chapter names or chapter count.
+\makeatletter
+\newsavebox{\CommunityChapterBox}
+\newcommand{\CommunityChapterMarker}[1][4cm]{%
+  \sbox{\CommunityChapterBox}{%
+    \resizebox{!}{#1}{\fboxsep=1pt%
+      \colorbox{ThesisGrey}{\color{white}\thechapter}}}%
+  \rotatebox{90}{%
+    \resizebox{\heightof{\usebox{\CommunityChapterBox}}+
+      \depthof{\usebox{\CommunityChapterBox}}}{!}{\scshape\so\@chapapp}}\quad
+  \raisebox{\depthof{\usebox{\CommunityChapterBox}}}{\usebox{\CommunityChapterBox}}%
+}
+\newcommand{\CommunityChapterNumber}[1][4cm]{%
+  \sbox{\CommunityChapterBox}{\CommunityChapterMarker[#1]}%
+  \makebox[0pt][c]{\makebox[1cm][r]{\usebox{\CommunityChapterBox}}}%
+}
+
+\makechapterstyle{communitymain}{%
+  \renewcommand\chapnamefont{\normalfont\Large\scshape\raggedleft\so}
+  \renewcommand\chaptitlefont{\normalfont\Large\bfseries\scshape}
+  \renewcommand\chapternamenum{}
+  \renewcommand\printchaptername{}
+  \renewcommand\printchapternum{\null\hfill\CommunityChapterNumber[2.5cm]\par}
+  \renewcommand\afterchapternum{\par\vskip\midchapskip}
+  \renewcommand\printchaptertitle[1]{%
+    \color{ThesisGrey}\chaptitlefont\raggedleft ##1\par}
+}
+
+% Front matter uses the same restrained grey language without a numbered marker.
+\makechapterstyle{communityfront}{%
+  \renewcommand\chapnamefont{\normalfont\Large\scshape}
+  \renewcommand\chaptitlefont{\normalfont\Large\bfseries\scshape}
+  \renewcommand\printchaptername{}
+  \renewcommand\printchapternum{}
+  \renewcommand\afterchapternum{}
+  \renewcommand\printchaptertitle[1]{%
+    \centering\color{ThesisGrey}\chaptitlefont ##1\par}
+  \setlength{\beforechapskip}{42pt}
+  \setlength{\afterchapskip}{36pt}
+}
+\makeatother
+
+% Continuation pages carry a restrained running chapter header and rule. Chapter
+% opening and front-matter pages retain only the centred page number.
+\makepagestyle{communitymain}
+\makeoddfoot{communitymain}{}{\thepage}{}
+\makeevenfoot{communitymain}{}{\thepage}{}
+\makeheadrule{communitymain}{\textwidth}{\normalrulethickness}
+\makeoddhead{communitymain}{}{}{\small\textsc{\leftmark}}
+\makeevenhead{communitymain}{}{}{\small\textsc{\leftmark}}
+\renewcommand*{\chaptermark}[1]{%
+  \markboth{\chaptername\space\thechapter.\space #1}{}}
+
+\makepagestyle{communityplain}
+\makeoddfoot{communityplain}{}{\thepage}{}
+\makeevenfoot{communityplain}{}{\thepage}{}
+\makeoddhead{communityplain}{}{}{}
+\makeevenhead{communityplain}{}{}{}
+\aliaspagestyle{chapter}{communityplain}
+
+% Declaration-page initial. The surrounding statement remains a placeholder and
+% must always be replaced with the student's current official wording.
+\newcommand{\DeclarationInitial}[1]{%
+  \raisebox{-0.50\height}{%
+    \fontsize{58}{58}\selectfont\bfseries\textcolor{ThesisGrey}{#1}}%
+  \hspace{-0.18em}%
+}

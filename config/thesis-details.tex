@@ -1,8 +1,10 @@
-% Replace every value below with your own verified information.
-\newcommand{\ThesisTitle}{An Example Research Thesis: Replace This with Your Approved Title}
+% Replace every value below with your own verified information. These values are
+% synthetic and demonstrate the title-page layout only.
+\newcommand{\ThesisTitle}{A Structured Research Journey: A Synthetic Example Thesis}
 \newcommand{\ThesisAuthor}{Student Name}
 \newcommand{\StudentID}{00000000}
 \newcommand{\DegreeName}{Doctor of Philosophy}
+\newcommand{\DisciplineName}{Your Discipline}
 \newcommand{\SchoolName}{Your School}
 \newcommand{\FacultyName}{Your Faculty}
 \newcommand{\PrincipalSupervisor}{Principal Supervisor Name}
@@ -10,3 +12,12 @@
 \newcommand{\SubmissionMonth}{Month}
 \newcommand{\SubmissionYear}{20XX}
 
+% Optional title-page fields. Use the matching \...true command to show a field
+% and the matching \...false command to hide it. For example, switch
+% \showstudentidtrue to \showstudentidfalse when the student ID is not required.
+\newif\ifshowstudentid
+\showstudentidtrue
+\newif\ifshowprincipalsupervisor
+\showprincipalsupervisortrue
+\newif\ifshowcosupervisor
+\showcosupervisortrue

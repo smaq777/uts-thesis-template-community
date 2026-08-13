@@ -3,6 +3,11 @@
 \documentclass[a4paper,11pt]{article}
 \usepackage[margin=2.3cm]{geometry}
 \usepackage{fontspec}
+\setmainfont{texgyreschola-regular.otf}[
+  BoldFont=texgyreschola-bold.otf,
+  ItalicFont=texgyreschola-italic.otf,
+  BoldItalicFont=texgyreschola-bolditalic.otf
+]
 \usepackage{xcolor}
 \usepackage{xparse}
 \usepackage{xstring}
@@ -20,6 +25,7 @@
 \input{config/thesis-details}
 \input{config/university-details}
 \input{config/revision-colours}
+\hypersetup{pdftitle={Thesis Revision Response: \ThesisTitle},pdfauthor={\ThesisAuthor}}
 
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 \newcommand{\CorrectionPage}[2]{\pageref{thesis-corr:#1-#2}}

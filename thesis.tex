@@ -4,12 +4,16 @@
 \documentclass[a4paper,12pt,openany,oneside]{memoir}
 
 \input{config/packages}
+\input{config/visual-style}
 \input{config/thesis-details}
 \input{config/university-details}
 \input{config/revision-colours}
+\hypersetup{pdftitle={\ThesisTitle},pdfauthor={\ThesisAuthor}}
 
 \begin{document}
 \frontmatter
+\chapterstyle{communityfront}
+\pagestyle{communityplain}
 \input{frontmatter/title}
 \cleardoublepage
 \input{frontmatter/declaration}
@@ -37,6 +41,8 @@
 \cleardoublepage
 
 \mainmatter
+\chapterstyle{communitymain}
+\pagestyle{communitymain}
 \input{chapters/01-introduction/chapter}
 \input{chapters/02-literature-review/chapter}
 \input{chapters/03-methodology/chapter}

@@ -15,7 +15,7 @@ handoff files for Codex or Claude.
 > office, Graduate Research School instructions, and the current
 > [UTS thesis submission and examination page](https://www.uts.edu.au/research/graduate/current-research-students/thesis-submission-and-examination).
 
-No UTS logo is distributed. The title page uses a neutral placeholder. Add an
+No UTS logo is distributed. The formal title page is logo-free by default. Add an
 institutional logo only if you are authorised to use it.
 
 ## Preview before installing
@@ -40,6 +40,7 @@ submitted.
 - [Local installation: first successful build](#local-installation-first-successful-build)
 - [What every build command does](#what-every-build-command-does)
 - [Your first writing session](#your-first-writing-session)
+- [Visual style and flexible thesis hierarchy](#visual-style-and-flexible-thesis-hierarchy)
 - [Folder architecture](#folder-architecture)
 - [Adding chapters, figures, tables, equations and references](#adding-chapters-figures-tables-equations-and-references)
 - [Revision history with GitHub issues and branches](#revision-history-with-github-issues-and-branches)
@@ -208,6 +209,44 @@ Keep the example content until one complete build works. Then replace it gradual
 A productive rhythm is small and boring: edit one section, save, build, inspect, commit.
 That rhythm makes thesis writing calmer because each problem has a small search area.
 
+## Visual style and flexible thesis hierarchy
+
+The community edition includes a distinctive but reusable memoir presentation:
+
+- portable Schoolbook-style typography;
+- a formal double-rule title page with optional student ID, principal supervisor,
+  co-supervisor and authorised institutional logo fields;
+- grey small-cap front-matter headings;
+- a large grey chapter-number box beside a vertical `CHAPTER` label;
+- right-aligned grey chapter titles;
+- numbered sections and subsections such as `1.1` and `1.1.1`;
+- uppercase running chapter headers, a horizontal rule and centred page numbers; and
+- consistent margins, line spacing, table captions and figure captions.
+
+Presentation is separated from content. Edit [`config/visual-style.tex`](config/visual-style.tex)
+only when changing typography or page design. Edit
+[`config/thesis-details.tex`](config/thesis-details.tex) for title-page placeholders,
+and edit [`thesis.tex`](thesis.tex) when adding, removing or reordering chapters.
+
+The included chapter order is a conventional demonstration, not a required table of
+contents:
+
+1. Introduction
+2. Literature Review
+3. Methodology
+4. Results
+5. Discussion
+6. Conclusion
+
+Your school, discipline, research design or thesis-by-publication approval may require a
+different structure. Rename, add, remove or reorder chapter folders as appropriate; LaTeX
+generates the chapter numbers and table of contents from the files actually included in
+`thesis.tex`. The template does not impose phase divisions or copy the maintainer's thesis
+structure.
+
+All example prose, values, examiner comments, figures and tables are synthetic. They
+demonstrate the finished design and must be replaced with the student's verified work.
+
 ## Folder architecture
 
 ```text
@@ -217,6 +256,7 @@ That rhythm makes thesis writing calmer because each problem has a small search 
 ├── thesis-review.tex                  # Tracked/review output entry point
 ├── revision-response.tex              # Examiner-response entry point
 ├── config/                            # Metadata, packages, macros and revision settings
+│   └── visual-style.tex               # Typography, chapter design, headers and layout
 ├── frontmatter/                       # Title, declaration, abstract and required statements
 ├── chapters/
 │   ├── 01-introduction/
