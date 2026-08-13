@@ -1,11 +1,17 @@
 LATEXMK ?= latexmk
 OUT := build
 
-.PHONY: all clean-thesis review response examples watch clean doctor
+.PHONY: all clean-thesis review response examples previews watch clean doctor
 
 all: clean-thesis review response
 
 examples: all
+
+previews: all
+	mkdir -p examples/pdfs
+	cp $(OUT)/Thesis_CLEAN.pdf examples/pdfs/Thesis_CLEAN.pdf
+	cp $(OUT)/Thesis_REVIEW.pdf examples/pdfs/Thesis_REVIEW.pdf
+	cp $(OUT)/Revision_Response.pdf examples/pdfs/Revision_Response.pdf
 
 $(OUT):
 	mkdir -p $(OUT)
@@ -25,10 +31,10 @@ watch: | $(OUT)
 doctor:
 	@command -v xelatex
 	@command -v bibtex
-	@command -v latexmk
-	@xelatex --version | head -n 1
-	@bibtex --version | head -n 1
-	@latexmk -v | head -n 2
+	@command -v $(LATEXMK)
+	@xelatex --version | sed -n '1p'
+	@bibtex --version | sed -n '1p'
+	@$(LATEXMK) -v | sed -n '1,2p'
 
 clean:
 	$(LATEXMK) -C -outdir=$(OUT) thesis-clean.tex thesis-review.tex revision-response.tex

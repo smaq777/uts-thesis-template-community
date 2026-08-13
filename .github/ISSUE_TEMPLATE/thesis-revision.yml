@@ -1,0 +1,103 @@
+name: Thesis revision
+description: Plan and trace one bounded thesis change before editing source files.
+title: "[Revision]: "
+labels:
+  - thesis-revision
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use one issue for one reviewable change. Do not paste confidential examiner reports, participant data, unpublished results, credentials, or restricted material into a public repository.
+
+  - type: dropdown
+    id: revision_type
+    attributes:
+      label: Revision type
+      options:
+        - Chapter draft or rewrite
+        - Supervisor feedback
+        - Examiner correction
+        - Figure, table, citation, or equation
+        - Formatting or build repair
+        - Submission snapshot
+        - Documentation or template improvement
+    validations:
+      required: true
+
+  - type: input
+    id: baseline
+    attributes:
+      label: Baseline
+      description: The branch, tag, release, or commit this work starts from.
+      placeholder: "main at abc1234, or thesis-v1.0-examination"
+    validations:
+      required: true
+
+  - type: textarea
+    id: request
+    attributes:
+      label: Requested revision
+      description: State what must change and why. Paraphrase confidential feedback if needed.
+      placeholder: "Revise Section 3.2 to justify the sampling strategy. Examiner reference: E1-04."
+    validations:
+      required: true
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Affected files and chapters
+      placeholder: |
+        chapters/03-methodology/sections/sampling.tex
+        tables/03-methodology/sample-summary.tex
+    validations:
+      required: true
+
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Acceptance criteria
+      placeholder: |
+        - The rationale is supported by verified sources.
+        - Examiner marker E1-04-a appears in the review PDF only.
+        - Clean, review, and response PDFs compile.
+    validations:
+      required: true
+
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation plan
+      placeholder: |
+        make all
+        Check the affected pages in all three PDFs.
+        Confirm no unresolved references or citations.
+    validations:
+      required: true
+
+  - type: textarea
+    id: risk
+    attributes:
+      label: Risk and privacy check
+      placeholder: "No restricted data will be committed. Main risk is changing the meaning of the sampling claim."
+    validations:
+      required: true
+
+  - type: textarea
+    id: recovery
+    attributes:
+      label: Rollback or forward-fix
+      placeholder: "Revert the PR merge commit, or restore the affected files from thesis-v1.0-examination."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: responsibility
+    attributes:
+      label: Author checks
+      options:
+        - label: I will verify every factual claim and citation against the original source.
+          required: true
+        - label: I will follow current university, school, ethics, privacy, and AI-use requirements.
+          required: true
+        - label: I will not commit confidential or personally identifying material to a public repository.
+          required: true
