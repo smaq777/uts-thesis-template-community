@@ -1,5 +1,10 @@
 # Thesis revision and version-control workflow
 
+> **Use this workflow in your own repository created from this template.** The upstream
+> `smaq777/uts-thesis-template-community` repository does not accept external pull
+> requests, feature requests, contribution proposals or personal thesis-revision
+> issues.
+
 Git makes every committed state recoverable. GitHub adds an issue for the reason, a
 branch for isolated work, a pull request for review, and a tag or release for important
 milestones. Together, these records are much safer than filenames such as
