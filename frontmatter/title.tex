@@ -1,23 +1,52 @@
 \begin{titlingpage}
-\centering
+\thispagestyle{empty}
+\begin{SingleSpace}
+\calccentering{\unitlength}
+\begin{adjustwidth*}{\unitlength}{-\unitlength}
+\begin{center}
 \InstitutionLogo
+\ifshowinstitutionlogo\vspace{8mm}\fi
 
-\vspace{2cm}
-{\Large\bfseries \ThesisTitle\par}
-\vspace{1.5cm}
-{\large \ThesisAuthor\par}
-{\normalsize Student ID: \StudentID\par}
+\color{ThesisRule}
+\rule[0.5ex]{\linewidth}{2pt}\vspace*{-\baselineskip}\vspace*{3.2pt}
+\rule[0.5ex]{\linewidth}{0.7pt}\par
+\color{black}
+\vspace{6mm}
+{\LARGE\bfseries \ThesisTitle\par}
+\vspace{6mm}
+\color{ThesisRule}
+\rule[0.5ex]{\linewidth}{0.7pt}\vspace*{-\baselineskip}\vspace*{4pt}
+\rule[0.5ex]{\linewidth}{2pt}\par
+\color{black}
 
-\vfill
-A thesis submitted in fulfilment of the requirements for the degree of\\
-\textbf{\DegreeName}
+\vspace{13mm}
+\emph{A thesis submitted in fulfilment of the requirements}\\[1.5mm]
+\emph{for the degree of}\\[7mm]
+{\large \DegreeName}\\[2mm]
+\emph{in}\\[1mm]
+{\large \DisciplineName}\\[4mm]
+\emph{by}\\[3mm]
+{\Large\bfseries \ThesisAuthor}\\[1mm]
+\ifshowstudentid
+  {\small Student ID: \StudentID}\\[4mm]
+\else
+  \vspace{3mm}
+\fi
 
-\vspace{1cm}
-\SchoolName\\
-\FacultyName\\
-\InstitutionName
+\ifshowprincipalsupervisor
+  \emph{Principal Supervisor:}\\[2mm]
+  {\large\bfseries \PrincipalSupervisor}\\[4mm]
+\fi
+\ifshowcosupervisor
+  \emph{Co-supervisor:}\\[2mm]
+  {\large\bfseries \CoSupervisor}\\[5mm]
+\fi
 
-\vspace{1cm}
+\SchoolName\\[1mm]
+\FacultyName\\[2mm]
+{\large \InstitutionName}\\[1mm]
 \SubmissionMonth{} \SubmissionYear
+\end{center}
+\end{adjustwidth*}
+\end{SingleSpace}
 \end{titlingpage}
-

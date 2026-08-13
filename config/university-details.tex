@@ -1,12 +1,16 @@
-% This community repository distributes no university logo.
-% To use an authorised logo, add assets/institution-logo.pdf.
+% This community repository distributes no university logo. The default title page
+% is intentionally logo-free. To use an authorised logo, add
+% assets/institution-logo.pdf and change \showinstitutionlogofalse to true.
 \newcommand{\InstitutionName}{Your University}
+\newif\ifshowinstitutionlogo
+\showinstitutionlogofalse
 \newcommand{\InstitutionLogo}{%
-  \IfFileExists{assets/institution-logo.pdf}{%
-    \includegraphics[width=42mm]{assets/institution-logo.pdf}%
-  }{%
-    \fbox{\parbox[c][28mm][c]{60mm}{\centering\small
-      Replace with your authorised\\institution logo\\or remove this box}}%
-  }%
+  \ifshowinstitutionlogo
+    \IfFileExists{assets/institution-logo.pdf}{%
+      \includegraphics[width=42mm]{assets/institution-logo.pdf}%
+    }{%
+      \fbox{\parbox[c][24mm][c]{58mm}{\centering\small
+        Add your authorised\\institution logo here}}%
+    }%
+  \fi
 }
-
