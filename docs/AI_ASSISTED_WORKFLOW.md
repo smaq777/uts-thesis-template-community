@@ -51,10 +51,61 @@ and report the rendered page number.
 
 ## UTS requirement
 
-UTS researchers must consult the current
-[Use of AI in Research Guidelines](https://www.uts.edu.au/about/leadership-governance/policies/a-z/use-of-ai-in-research-guidelines).
-The guidance requires careful attention to research integrity, privacy, security,
-verification and disclosure. UTS thesis-preparation procedures and school instructions
-may impose additional or updated requirements. Never treat an AI provider's convenience
-as permission to upload university or research data.
+As checked on 13 August 2026, version 1.19 of the official
+[Graduate Research Candidature Management, Thesis Preparation and Submission Procedures](https://www.uts.edu.au/globalassets/shared-media/documents/grs/graduate-research-candidature-management-thesis-preparation-submission-procedures.pdf)
+requires every UTS graduate research student to indicate how generative AI was used in
+the research or preparation of the thesis. It distinguishes four categories:
 
+- **No substantive use:** no deliberate use beyond AI unavoidably embedded in common
+  software or search tools.
+- **Assistive use:** support for the researcher's expression or workflow without AI
+  supplying original ideas, interpretations or data.
+- **Generative use:** AI production of material that may enter the research output,
+  including text, code, images or summaries, even when later rewritten.
+- **Analytical use:** AI interpretation, evaluation, classification, critique, pattern
+  identification or suggested conclusions.
+
+The selected current statement belongs in the Certificate of Original Authorship. When
+assistive, generative or analytical use is declared, the current procedure also requires
+a table identifying the affected chapter/location, tool and version, platform, purpose,
+and how outputs were incorporated. The worked structure is in
+`frontmatter/generative-ai-use.tex`.
+
+Do not assume that using Codex, Claude or ChatGPT for writing, editing, coding,
+summarising or analysis qualifies as “no substantive use.” Classify the actual use and
+confirm it with the supervisory panel where necessary.
+
+UTS researchers must also consult the current
+[Use of AI in Research Guidelines](https://www.uts.edu.au/about/leadership-governance/policies/a-z/use-of-ai-in-research-guidelines).
+They require documentation throughout the project, human responsibility, verification
+of claims and citations, attention to bias, and compliance with research integrity,
+privacy, confidentiality, ethics, intellectual-property, licensing, data-classification
+and cybersecurity obligations.
+
+The UTS guidelines' documentation checklist includes the tool and version, date,
+prompts or queries, generated responses, follow-up interactions, the person who queried,
+and durable records of relevant chats. Keep this research record in an approved secure
+location; do not publish sensitive prompts or data in GitHub issues.
+
+This repository includes a practical ongoing log at
+[`records/ai-use-log.example.csv`](../records/ai-use-log.example.csv). Copy it to
+`records/ai-use-log.csv` before beginning real work. The private filename is ignored by
+Git by default. Record one materially distinct activity per row, including:
+
+1. stable record ID and date;
+2. exact chapter, section or source file affected;
+3. no substantive, assistive, generative or analytical category;
+4. provider, tool, model/version and platform;
+5. purpose and a secure reference to prompts and responses;
+6. exactly what was incorporated or rejected;
+7. human verification performed;
+8. data classification and relevant approval/policy check; and
+9. notes needed to prepare the final declaration.
+
+The declaration is a concise submission statement; the log is the evidence used to
+prepare it. Neither should contain false, guessed or reconstructed information.
+
+These requirements can change. Re-download the official procedure immediately before
+submission and follow any newer outcome-letter, faculty, school, ethics, funder,
+publisher and supervisory instructions. Never treat an AI provider's convenience as
+permission to upload university or research data.

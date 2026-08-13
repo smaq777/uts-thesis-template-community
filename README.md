@@ -397,6 +397,24 @@ UTS researchers must consult the current
 verify outputs and make required disclosures. See the fuller
 [Responsible AI workflow](docs/AI_ASSISTED_WORKFLOW.md).
 
+As checked on **13 August 2026**, the UTS Thesis Preparation and Submission Procedures
+version 1.19 require every graduate research student to indicate their generative-AI use
+in the Certificate of Original Authorship. The procedure distinguishes no substantive,
+assistive, generative and analytical use. Students declaring substantive use must also
+identify where it occurred, the tool/version/platform, its purpose, and how outputs were
+incorporated. This repository now demonstrates that structure in
+[`frontmatter/generative-ai-use.tex`](frontmatter/generative-ai-use.tex), but students
+must obtain the exact current wording from the
+[official procedure](https://www.uts.edu.au/globalassets/shared-media/documents/grs/graduate-research-candidature-management-thesis-preparation-submission-procedures.pdf)
+immediately before submission.
+
+To keep track while writing, copy
+[`records/ai-use-log.example.csv`](records/ai-use-log.example.csv) to
+`records/ai-use-log.csv` and record each materially distinct activity. The working log
+is ignored by Git by default because prompt descriptions may expose private research
+context. See [`records/README.md`](records/README.md) for the exact fields and safe
+record-keeping workflow.
+
 ## Overleaf route
 
 For a browser-only setup:
