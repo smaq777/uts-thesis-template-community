@@ -18,8 +18,6 @@ milestones. Together, these records are much safer than filenames such as
 2. **Start from the accepted baseline.** Usually this is `main`; after examination it
    may be a tagged submission such as `thesis-v1.0-examination`.
 3. **Create a short-lived branch.** Students can use `revision/42-methodology-rationale`.
-   An AI coding agent working under this repository's rules should use
-   `codex/issue-42-methodology-rationale`.
 4. **Make small commits.** Each commit should explain one coherent change and reference
    the issue where helpful.
 5. **Build and inspect.** Run `make all`; inspect the affected pages in the clean,

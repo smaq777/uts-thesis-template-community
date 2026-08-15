@@ -19,11 +19,17 @@
 \definecolor{ThesisRule}{gray}{0.18}
 
 % A4 layout inspired by the maintained community edition's established memoir
-% presentation. Change these values only after checking every output PDF.
+% presentation. Print builds use the separately documented binding margins in
+% config/print-settings.tex. Change any value only after checking every output.
 \settrimmedsize{297mm}{210mm}{*}
 \settypeblocksize{634pt}{*}{*}
-\setulmargins{40mm}{*}{*}
-\setlrmarginsandblock{26.5mm}{26.5mm}{*}
+\ifdefined\ThesisPrintMode
+  \setulmarginsandblock{\PrintTopMargin}{\PrintBottomMargin}{*}
+  \setlrmarginsandblock{\PrintInnerMargin}{\PrintOuterMargin}{*}
+\else
+  \setulmargins{40mm}{*}{*}
+  \setlrmarginsandblock{26.5mm}{26.5mm}{*}
+\fi
 \setmarginnotes{17pt}{51pt}{\onelineskip}
 \setheadfoot{30pt}{2\onelineskip}
 \setheaderspaces{*}{2\onelineskip}{*}

@@ -4,9 +4,8 @@
 
 Maintained by **Saleh Alqahtani (`@smaq777`)**. This edition adds a consistent
 chapter/figure/table architecture, neutral branding, complete synthetic example content,
-local and Overleaf instructions, VS Code configuration, optional Codex and Claude
-workflows, three-output examination corrections, automated builds and student-focused
-documentation.
+local and Overleaf instructions, VS Code configuration, three-output examination
+corrections, automated builds and student-focused documentation.
 
 ## Original work
 
@@ -27,4 +26,3 @@ other students have also explored more modular organisation. This edition does n
 his source and does not claim that chapter subfolders are a unique invention.
 
 UTS names and links are used descriptively. No UTS logo or trademark asset is distributed.
-

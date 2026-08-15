@@ -6,8 +6,7 @@ Research students, while remaining reusable by students at other universities.
 
 The repository is deliberately more than a collection of `.tex` files. It provides a
 local VS Code workspace, realistic placeholder chapters, organised chapter assets,
-three examination outputs, Git revision governance, Overleaf instructions, and safe
-handoff files for Codex or Claude.
+three examination outputs, Git revision governance and Overleaf instructions.
 
 > **UTS students:** this is community guidance, not an official UTS template or source
 > of policy. Requirements, forms and required declarations can change. Always follow
@@ -39,13 +38,14 @@ submitted.
 - [Required software and extensions](#required-software-and-extensions)
 - [Local installation: first successful build](#local-installation-first-successful-build)
 - [What every build command does](#what-every-build-command-does)
+- [Printing and binding](#printing-and-binding)
 - [Your first writing session](#your-first-writing-session)
 - [Visual style and flexible thesis hierarchy](#visual-style-and-flexible-thesis-hierarchy)
 - [Folder architecture](#folder-architecture)
 - [Adding chapters, figures, tables, equations and references](#adding-chapters-figures-tables-equations-and-references)
 - [Revision history with GitHub issues and branches](#revision-history-with-github-issues-and-branches)
 - [Examination corrections and three final outputs](#examination-corrections-and-three-final-outputs)
-- [Using Codex or Claude responsibly](#using-codex-or-claude-responsibly)
+- [UTS generative AI declaration requirement](#uts-generative-ai-declaration-requirement)
 - [Overleaf route](#overleaf-route)
 - [Troubleshooting](#troubleshooting)
 - [UTS checkpoints](#uts-checkpoints)
@@ -65,7 +65,6 @@ machine and gives you:
 - repeatable one-command builds without repeatedly uploading a large project;
 - an integrated PDF tab with source-to-PDF and PDF-to-source navigation;
 - local automation for building clean, review and response documents together;
-- optional access for an AI coding/writing assistant to only the files you approve;
 - offline writing and control over when the project is synchronised.
 
 Local work is not automatically faster in every situation: speed depends on your
@@ -78,7 +77,7 @@ can take longer to upload or compile and may encounter account or project limits
 
 | Route | Best for | Main trade-off |
 |---|---|---|
-| **Local VS Code (recommended)** | Large theses, Git history, repeatable builds, local AI tools | Requires VS Code and a TeX distribution |
+| **Local VS Code (recommended)** | Large theses, Git history and repeatable builds | Requires VS Code and a TeX distribution |
 | **Overleaf** | No-install browser setup and live co-authoring | Large projects may upload/build more slowly; Git and local automation are reduced |
 | **Hybrid** | Local master copy plus occasional Overleaf collaboration | Requires discipline about which copy is authoritative |
 
@@ -101,8 +100,6 @@ compiler by itself.
 | LTeX+ | Optional | Language and grammar checking for LaTeX | [`ltex-plus.vscode-ltex-plus`](https://marketplace.visualstudio.com/items?itemName=ltex-plus.vscode-ltex-plus) |
 | Git | Recommended | Version history, branches, tags and GitHub use | [git-scm.com/downloads](https://git-scm.com/downloads) |
 | GitHub Desktop | Optional | Visual Git interface if terminal Git is unfamiliar | [desktop.github.com](https://desktop.github.com/download/) |
-| Codex IDE extension | Optional | OpenAI agent inside VS Code | [Official Codex IDE setup](https://developers.openai.com/codex/ide) |
-| Claude Code | Optional | Anthropic agent integration | [Official VS Code integration](https://code.claude.com/docs/en/ide-integrations) |
 
 The included [`.vscode/extensions.json`](.vscode/extensions.json) recommends the editor
 extensions. The included [`.vscode/settings.json`](.vscode/settings.json) configures the
@@ -181,12 +178,44 @@ mouse settings.
 | `make review` | Builds `build/Thesis_REVIEW.pdf` with correction marks |
 | `make response` | Builds `build/Revision_Response.pdf` after the review thesis |
 | `make all` | Builds all three deliverables |
+| `make print-single` | Builds `build/Thesis_PRINT_SINGLE.pdf` with a left binding margin |
+| `make print-duplex` | Builds `build/Thesis_PRINT_DUPLEX.pdf` with mirrored binding margins |
+| `make print` | Builds both optional print variants |
 | `make watch` | Watches source files and rebuilds the clean thesis while you write |
 | `make previews` | Builds and refreshes the three public examples under `examples/pdfs/` |
 | `make clean` | Removes generated build files; it does not delete thesis source |
 
 Generated files belong in `build/`. Never correct a PDF directly and never edit `.aux`,
 `.bbl`, `.log`, `.toc` or `.synctex.gz` files. Correct the source and rebuild.
+
+## Printing and binding
+
+Do not assume that a physical thesis is required. Current requirements vary between
+universities, faculties, degrees, examiners and final-deposit processes.
+
+For many students, printing is optional because universities now commonly use digital
+submission and examination. Even when a printed copy is not required, some students
+choose to order one personal bound copy as a lasting record of the work involved in
+completing the thesis.
+
+The repository provides optional one-sided and double-sided print builds. The default
+print margins reflect the UTS procedure checked on 15 August 2026. Students at other
+universities must replace the values in
+[`config/print-settings.tex`](config/print-settings.tex) with their own verified rules.
+
+Read the complete [printing and binding guide](docs/PRINTING_AND_BINDING.md) for:
+
+- current UTS paper, sides, margins and binding requirements;
+- official starting links for selected NSW universities;
+- UTS campus printing and Digital Imaging Service details;
+- Sydney thesis printing and specialist binding services;
+- a placeholder-only [print-order checklist](docs/PRINT_ORDER_CHECKLIST.md);
+- final PDF, privacy and printer-proof checks.
+
+University requirements and service details can change. Do not print a formal copy
+until you confirm whether one is required. Verify the official website, your faculty
+or research office, your supervisor and your individual submission instructions
+immediately before printing and again before submission.
 
 ## Your first writing session
 
@@ -345,8 +374,8 @@ leaving a formula detached from the argument.
 
 Add a verified BibTeX record to `bibliography/references.bib`, cite it with the template's
 configured command, and rebuild enough times for BibTeX and cross-references to settle.
-Never use a citation invented by an AI assistant. Open the source and verify authors,
-title, venue, year, DOI and the claim it is being used to support.
+Never use an unverified citation. Open the source and verify authors, title, venue,
+year, DOI and the claim it is being used to support.
 
 ## Revision history with GitHub issues and branches
 
@@ -363,8 +392,7 @@ thesis milestones**.
    revision**.
 2. Record the baseline, requested revision, affected files, acceptance criteria,
    validation, privacy risk and recovery plan.
-3. Create a branch such as `revision/42-methodology-rationale`. An AI agent following
-   this repository uses `codex/issue-42-methodology-rationale`.
+3. Create a branch such as `revision/42-methodology-rationale`.
 4. Make the bounded change, run `make all`, inspect the PDFs and commit it.
 5. Push the branch and open a pull request containing `Closes #42`.
 6. Merge only after the build and required human review pass.
@@ -410,58 +438,12 @@ official submission set and permitted markup are determined by your outcome lett
 current university/school instructions. Read the complete
 [Examination workflow](docs/EXAMINATION_WORKFLOW.md) before using the macros.
 
-## Using Codex or Claude responsibly
+## UTS generative AI declaration requirement
 
-AI assistance is optional. A capable agent can navigate many files, apply a consistent
-rename, draft placeholder prose, update cross-references, run builds, read logs and show
-exactly which files changed. It cannot take responsibility for your authorship,
-research claims, citations, ethics obligations, examiner interpretation or submission.
-
-This repository includes [`AGENTS.md`](AGENTS.md) for Codex and
-[`CLAUDE.md`](CLAUDE.md) for Claude. After installing only the provider you choose,
-open the repository root so the agent can read those instructions.
-
-### Copyable first prompt for an AI agent
-
-```text
-Read README.md, AGENTS.md (or CLAUDE.md), config/thesis-details.tex, thesis.tex,
-and the chapter files relevant to my request. Do not edit yet. First report:
-1. the exact files you propose to change;
-2. the GitHub revision issue in my own repository and the branch you will use;
-3. risks to citations, labels, examiner IDs, privacy, and formatting;
-4. the build and visual checks you will run.
-Wait for my approval, then make a small change, run make all, inspect the affected
-pages in the clean/review/response PDFs, and report changed paths and evidence.
-Never invent a source, result, examiner instruction, or institutional requirement.
-```
-
-Give the agent only the smallest relevant source set. Keep raw participant data,
-confidential interviews, unpublished examiner reports, credentials and restricted
-material outside the agent workspace unless your approvals and provider terms clearly
-permit their use. Review the diff before accepting any edit.
-
-UTS researchers must consult the current
-[Use of AI in Research Guidelines](https://www.uts.edu.au/about/leadership-governance/policies/a-z/use-of-ai-in-research-guidelines),
-verify outputs and make required disclosures. See the fuller
-[Responsible AI workflow](docs/AI_ASSISTED_WORKFLOW.md).
-
-As checked on **13 August 2026**, the UTS Thesis Preparation and Submission Procedures
-version 1.19 require every graduate research student to indicate their generative-AI use
-in the Certificate of Original Authorship. The procedure distinguishes no substantive,
-assistive, generative and analytical use. Students declaring substantive use must also
-identify where it occurred, the tool/version/platform, its purpose, and how outputs were
-incorporated. This repository now demonstrates that structure in
-[`frontmatter/generative-ai-use.tex`](frontmatter/generative-ai-use.tex), but students
-must obtain the exact current wording from the
-[official procedure](https://www.uts.edu.au/globalassets/shared-media/documents/grs/graduate-research-candidature-management-thesis-preparation-submission-procedures.pdf)
-immediately before submission.
-
-To keep track while writing, copy
-[`records/ai-use-log.example.csv`](records/ai-use-log.example.csv) to
-`records/ai-use-log.csv` and record each materially distinct activity. The working log
-is ignored by Git by default because prompt descriptions may expose private research
-context. See [`records/README.md`](records/README.md) for the exact fields and safe
-record-keeping workflow.
+UTS requires graduate research students to declare any use of generative AI in their
+research or preparation of the thesis. Check the current official
+[UTS Use of AI in Research Guidelines](https://www.uts.edu.au/about/leadership-governance/policies/a-z/use-of-ai-in-research-guidelines)
+and UTS thesis requirements before submission.
 
 ## Overleaf route
 
