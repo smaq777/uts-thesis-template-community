@@ -17,18 +17,22 @@ jobs:
           sudo apt-get update
           sudo apt-get install --yes latexmk poppler-utils texlive-xetex texlive-latex-extra texlive-fonts-recommended
       - name: Build all examples
-        run: make all
+        run: make all print
       - name: Confirm expected PDFs
         run: |
           test -s build/Thesis_CLEAN.pdf
           test -s build/Thesis_REVIEW.pdf
           test -s build/Revision_Response.pdf
+          test -s build/Thesis_PRINT_SINGLE.pdf
+          test -s build/Thesis_PRINT_DUPLEX.pdf
           test -s examples/pdfs/Thesis_CLEAN.pdf
           test -s examples/pdfs/Thesis_REVIEW.pdf
           test -s examples/pdfs/Revision_Response.pdf
           pdftotext examples/pdfs/Thesis_CLEAN.pdf - | grep -q "A Structured Research Journey"
           pdftotext examples/pdfs/Thesis_REVIEW.pdf - | grep -q "E1-01"
           pdftotext examples/pdfs/Revision_Response.pdf - | grep -q "Thesis Revision Response"
+          pdftotext build/Thesis_PRINT_SINGLE.pdf - | grep -q "A Structured Research Journey"
+          pdftotext build/Thesis_PRINT_DUPLEX.pdf - | grep -q "A Structured Research Journey"
       - name: Upload example PDFs
         uses: actions/upload-artifact@v4
         with:
@@ -37,3 +41,5 @@ jobs:
             build/Thesis_CLEAN.pdf
             build/Thesis_REVIEW.pdf
             build/Revision_Response.pdf
+            build/Thesis_PRINT_SINGLE.pdf
+            build/Thesis_PRINT_DUPLEX.pdf

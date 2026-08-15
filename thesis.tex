@@ -1,9 +1,14 @@
 % Community edition maintained by Saleh Alqahtani (@smaq777).
 % Substantially reorganised and extended from the publicly available
 % UTS thesis template by Dr Chandranath Adak (LPPL 1.3c).
-\documentclass[a4paper,12pt,openany,oneside]{memoir}
+\ifdefined\ThesisDuplexPrintMode
+  \documentclass[a4paper,12pt,openright,twoside]{memoir}
+\else
+  \documentclass[a4paper,12pt,openany,oneside]{memoir}
+\fi
 
 \input{config/packages}
+\input{config/print-settings}
 \input{config/visual-style}
 \input{config/thesis-details}
 \input{config/university-details}

@@ -1,7 +1,7 @@
 LATEXMK ?= latexmk
 OUT := build
 
-.PHONY: all clean-thesis review response examples previews watch clean doctor
+.PHONY: all clean-thesis review response print print-single print-duplex examples previews watch clean doctor
 
 all: clean-thesis review response
 
@@ -25,6 +25,14 @@ review: | $(OUT)
 response: review | $(OUT)
 	$(LATEXMK) -xelatex -interaction=nonstopmode -halt-on-error -file-line-error -outdir=$(OUT) -jobname=Revision_Response revision-response.tex
 
+print: print-single print-duplex
+
+print-single: | $(OUT)
+	$(LATEXMK) -xelatex -interaction=nonstopmode -halt-on-error -file-line-error -outdir=$(OUT) -jobname=Thesis_PRINT_SINGLE thesis-print-single.tex
+
+print-duplex: | $(OUT)
+	$(LATEXMK) -xelatex -interaction=nonstopmode -halt-on-error -file-line-error -outdir=$(OUT) -jobname=Thesis_PRINT_DUPLEX thesis-print-duplex.tex
+
 watch: | $(OUT)
 	$(LATEXMK) -xelatex -pvc -interaction=nonstopmode -file-line-error -outdir=$(OUT) -jobname=Thesis_CLEAN thesis-clean.tex
 
@@ -37,5 +45,5 @@ doctor:
 	@$(LATEXMK) -v | sed -n '1,2p'
 
 clean:
-	$(LATEXMK) -C -outdir=$(OUT) thesis-clean.tex thesis-review.tex revision-response.tex
-	rm -f $(OUT)/Thesis_CLEAN.* $(OUT)/Thesis_REVIEW.* $(OUT)/Revision_Response.*
+	$(LATEXMK) -C -outdir=$(OUT) thesis-clean.tex thesis-review.tex revision-response.tex thesis-print-single.tex thesis-print-duplex.tex
+	rm -f $(OUT)/Thesis_CLEAN.* $(OUT)/Thesis_REVIEW.* $(OUT)/Revision_Response.* $(OUT)/Thesis_PRINT_SINGLE.* $(OUT)/Thesis_PRINT_DUPLEX.*

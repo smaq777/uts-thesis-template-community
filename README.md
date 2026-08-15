@@ -39,6 +39,7 @@ submitted.
 - [Required software and extensions](#required-software-and-extensions)
 - [Local installation: first successful build](#local-installation-first-successful-build)
 - [What every build command does](#what-every-build-command-does)
+- [Printing and binding](#printing-and-binding)
 - [Your first writing session](#your-first-writing-session)
 - [Visual style and flexible thesis hierarchy](#visual-style-and-flexible-thesis-hierarchy)
 - [Folder architecture](#folder-architecture)
@@ -181,12 +182,44 @@ mouse settings.
 | `make review` | Builds `build/Thesis_REVIEW.pdf` with correction marks |
 | `make response` | Builds `build/Revision_Response.pdf` after the review thesis |
 | `make all` | Builds all three deliverables |
+| `make print-single` | Builds `build/Thesis_PRINT_SINGLE.pdf` with a left binding margin |
+| `make print-duplex` | Builds `build/Thesis_PRINT_DUPLEX.pdf` with mirrored binding margins |
+| `make print` | Builds both optional print variants |
 | `make watch` | Watches source files and rebuilds the clean thesis while you write |
 | `make previews` | Builds and refreshes the three public examples under `examples/pdfs/` |
 | `make clean` | Removes generated build files; it does not delete thesis source |
 
 Generated files belong in `build/`. Never correct a PDF directly and never edit `.aux`,
 `.bbl`, `.log`, `.toc` or `.synctex.gz` files. Correct the source and rebuild.
+
+## Printing and binding
+
+Do not assume that a physical thesis is required. Current requirements vary between
+universities, faculties, degrees, examiners and final-deposit processes.
+
+For many students, printing is optional because universities now commonly use digital
+submission and examination. Even when a printed copy is not required, some students
+choose to order one personal bound copy as a lasting record of the work involved in
+completing the thesis.
+
+The repository provides optional one-sided and double-sided print builds. The default
+print margins reflect the UTS procedure checked on 15 August 2026. Students at other
+universities must replace the values in
+[`config/print-settings.tex`](config/print-settings.tex) with their own verified rules.
+
+Read the complete [printing and binding guide](docs/PRINTING_AND_BINDING.md) for:
+
+- current UTS paper, sides, margins and binding requirements;
+- official starting links for selected NSW universities;
+- UTS campus printing and Digital Imaging Service details;
+- Sydney thesis printing and specialist binding services;
+- a placeholder-only [print-order checklist](docs/PRINT_ORDER_CHECKLIST.md);
+- final PDF, privacy and printer-proof checks.
+
+University requirements and service details can change. Do not print a formal copy
+until you confirm whether one is required. Verify the official website, your faculty
+or research office, your supervisor and your individual submission instructions
+immediately before printing and again before submission.
 
 ## Your first writing session
 
