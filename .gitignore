@@ -35,7 +35,3 @@ tmp/
 .env.*
 *.key
 *.pem
-
-# A student's real AI-use log may contain sensitive research context or prompt text.
-# Keep the synthetic example, but do not publish the working log by default.
-records/ai-use-log.csv
